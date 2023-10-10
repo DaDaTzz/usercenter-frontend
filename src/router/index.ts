@@ -1,25 +1,36 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router'
+import IndexPage from "@/pages/IndexPage.vue";
+import UserListPage from "@/pages/UserListPage.vue";
+import UserEditPage from "@/pages/UserEditPage.vue";
+import AddUserPage from "@/pages/AddUserPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    {
+        path: '/',
+        name: '登录',
+        component: IndexPage
+    },
+    {
+        path: '/user/list',
+        name: '用户列表',
+        component: UserListPage
+    },
+    {
+        path: '/user/edit',
+        name: '编辑用户',
+        component: UserEditPage
+    },
+    {
+        path: '/user/add',
+        name: '新增用户',
+        component: AddUserPage
+    },
+
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+    history: createWebHashHistory(),
+    routes
 })
 
 export default router
